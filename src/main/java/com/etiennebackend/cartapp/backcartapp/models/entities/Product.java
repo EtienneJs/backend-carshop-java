@@ -1,10 +1,12 @@
 package com.etiennebackend.cartapp.backcartapp.models.entities;
 
-import jakarta.persistence.Column;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -41,8 +43,13 @@ public class Product {
     public void setPrice(Long price) {
         this.price = price;
     }
-    
-    
+    public void setColums (String name, String description, Long price){
+        setDescription(description);
+        setName(name);
+        setPrice(price);
+    }
 
+    @OneToMany(mappedBy = "producto")
+    private Set<FacturaProducto> facturaProductos;
     
 }

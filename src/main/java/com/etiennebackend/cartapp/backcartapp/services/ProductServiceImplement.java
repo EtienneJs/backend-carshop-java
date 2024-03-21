@@ -30,11 +30,17 @@ public class ProductServiceImplement implements ProductService {
     @Transactional
     public Boolean save(Long id, Product product) {
         Product existingProduct = repository.findById(id).orElseThrow(()-> new EntityNotFoundException("Producto no Encontrado"));
-        existingProduct.setName(product.getName());
-        existingProduct.setDescription(product.getDescription());
-        existingProduct.setPrice(product.getPrice());
+        existingProduct.setColums(product.getName(),product.getDescription(),product.getPrice());
         repository.save(existingProduct);
         return true;
+    }
+    @Override
+    @Transactional
+    public Product insertOneProduct(Product product){
+        Product newProduct = new Product();
+        newProduct.setColums(product.getName(),product.getDescription(),product.getPrice());
+        repository.save(newProduct);
+        return newProduct; 
     }
     
 }

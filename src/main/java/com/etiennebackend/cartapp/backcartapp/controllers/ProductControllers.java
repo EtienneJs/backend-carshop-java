@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.etiennebackend.cartapp.backcartapp.models.entities.Product;
 import com.etiennebackend.cartapp.backcartapp.services.ProductService;
+import org.springframework.web.bind.annotation.PostMapping;
+
 @RestController
 public class ProductControllers {
     @Autowired
@@ -26,4 +28,9 @@ public class ProductControllers {
     public Boolean save(@PathVariable Long id,@RequestBody Product product){
         return service.save(id, product);
     }
+    @PostMapping("/products")
+    public Product incertOneProduct(@RequestBody Product product) {
+        return service.insertOneProduct(product);
+    }
+    
 }

@@ -7,4 +7,5 @@ public interface ProductService {
     List<Product> findAll();
     Product findById(Long id);
     Boolean save(Long id, Product product);
+    Product insertOneProduct(Product product);
 }
