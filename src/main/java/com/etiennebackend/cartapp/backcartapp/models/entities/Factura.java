@@ -2,7 +2,9 @@ package com.etiennebackend.cartapp.backcartapp.models.entities;
 
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,8 +23,20 @@ public class Factura {
     private Long total;
     private Long totalItems;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "client_Id", referencedColumnName = "id")
+    private Client client;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "company_Id", referencedColumnName = "id")
+    private Company company;
+
     @OneToMany(mappedBy = "factura")
     private Set<FacturaProducto> facturaProductos;
+
+    public Factura(){
+
+    }
 
     public Long getTotal() {
         return total;
@@ -48,11 +62,18 @@ public class Factura {
     public void setName(String name) {
         this.name = name;
     }
-    @OneToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
-    @OneToOne
-    @JoinColumn(name = "company_id")
-    private Company company;
+    public void setClient(Client client){
+        this.client = client;
+    }
+    public Client getClient(){
+        return client;
+    }
+    public void setCompany(Company company){
+        this.company = company;
+    }
+    public Company getCompany(){
+        return company;
+    }    
+
 
 }

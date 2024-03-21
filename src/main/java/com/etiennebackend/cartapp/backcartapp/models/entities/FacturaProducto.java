@@ -12,6 +12,17 @@ public class FacturaProducto {
     @EmbeddedId
     private FacturaProductoId id;
 
+    private Long quantity;
+
+    public Long getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
+    }
+    
+
     @ManyToOne
     @MapsId("facturaId")
     private Factura factura;
@@ -19,6 +30,7 @@ public class FacturaProducto {
     @ManyToOne
     @MapsId("productoId")
     private Product producto;
+
 
     // Getters y setters
 }

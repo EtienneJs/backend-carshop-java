@@ -1,10 +1,14 @@
 package com.etiennebackend.cartapp.backcartapp.models.entities;
 
+import java.util.Set;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -38,4 +42,7 @@ public class Client {
     @OneToOne
     @JoinColumn(name = "andress_id")
     private Andress Andress;
+
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+	private Set<Factura> factura;
 }
