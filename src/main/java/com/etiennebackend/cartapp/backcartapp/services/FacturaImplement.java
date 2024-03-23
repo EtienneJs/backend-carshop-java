@@ -11,7 +11,7 @@ import com.etiennebackend.cartapp.backcartapp.repositories.FacturaRepository;
 
 @Service
 public class FacturaImplement implements FacturaService {
-        @Autowired
+    @Autowired
     private FacturaRepository repository;
     @Override
     @Transactional

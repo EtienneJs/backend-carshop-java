@@ -38,6 +38,10 @@ public class Company {
     public void setFiscalNumber(String fiscalNumber) {
         this.fiscalNumber = fiscalNumber;
     }
+    public void setColums (String name, String fiscalNumber){
+        setFiscalNumber(fiscalNumber);
+        setName(name);
+    }
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
 	private Set<Factura> factura;
 }

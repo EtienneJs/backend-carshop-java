@@ -48,4 +48,10 @@ public class Andress {
     public void setNumber(Long number) {
         this.number = number;
     }
+    public void setColums (String city, String country,Long number,String street){
+        setCity(city);
+        setCountry(country);
+        setNumber(number);
+        setStreet(street);
+    }
 }
