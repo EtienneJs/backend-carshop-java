@@ -1,10 +1,9 @@
 package com.etiennebackend.cartapp.backcartapp.models.entities;
 
-import java.util.Set;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,8 +30,16 @@ public class Factura {
     @JoinColumn(name = "company_Id", referencedColumnName = "id")
     private Company company;
 
-    @OneToMany(mappedBy = "factura")
-    private Set<FacturaProducto> facturaProductos;
+    @OneToMany(mappedBy = "factura_id")
+    private List<FacturaProducto> facturaProductos;
+
+    public List<FacturaProducto> getFacturaProductos() {
+        return facturaProductos;
+    }
+
+    public void setFacturaProductos(List<FacturaProducto> facturaProductos) {
+        this.facturaProductos = facturaProductos;
+    }
 
     public Factura(){
 

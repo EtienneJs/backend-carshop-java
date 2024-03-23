@@ -16,5 +16,5 @@ INSERT INTO products (name, description, price) VALUES ('CPU Intel Core i7-12700
 INSERT INTO client (last_name,name,andress_id) VALUES ('Etienne','Fernandez', 1);
 
 INSERT INTO factura (name,total,total_Items, client_Id, company_Id) VALUES ('Pc components',2000, 10,1,1);
-INSERT INTO factura_producto (factura_Id,producto_Id,quantity) VALUES (1,1,2),(1,2,3);
+INSERT INTO factura_producto (factura_id,product_id,quantity) VALUES (1,1,2),(1,2,3);
 
